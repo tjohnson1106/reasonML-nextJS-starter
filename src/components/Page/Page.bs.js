@@ -3,6 +3,8 @@
 import * as React from "react";
 import * as Head from "next/head";
 
+((require("bulma")));
+
 function Page(Props) {
   var children = Props.children;
   return React.createElement(React.Fragment, undefined, React.createElement(Head.default, {
@@ -19,4 +21,4 @@ export {
   make ,
   
 }
-/* react Not a pure module */
+/*  Not a pure module */

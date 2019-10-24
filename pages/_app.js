@@ -2,7 +2,7 @@ import React from "react";
 import App from "next/app";
 
 // importing Reason component into JS
-const Page = require("../src/components/Page.bs").make;
+const Page = require("../src/components/Page/Page.bs").make;
 
 const Page = class ReNext extends App {
   static async getInitialProps({ Component, ctx }) {
