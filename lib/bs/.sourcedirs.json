@@ -1,0 +1,1 @@
+{ "dirs" : [ "pages" , "src" , "src/components" ] , "pkgs" : [ [ "bs-platform" , "/home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform" ] , [ "reason-react" , "/home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react" ] ] , "generated" : [] }

@@ -1,0 +1,37 @@
+g_std_incl = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/ocaml
+g_pkg_flg = -bs-package-name my-blog -bs-ns MyBlog
+src_root_dir = /home/thomas/Code/web/reason/next-reason/re-next
+bsc = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/bsc.exe
+bsdep = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/bsb_helper.exe
+warnings = -w -30-40+6+7+27+32..39+44+45+101
+bsc_flags = -bs-super-errors
+ppx_flags = 
+g_dpkg_incls = 
+g_ns = -bs-ns MyBlog
+bsb_dir_group = 0
+g_lib_incls = -I . -I pages -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml
+rule build_ast_from_re
+  command = $bsc  $warnings -color always -bs-jsx 3 $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
+  description = [34mBuilding[39m [2m${out}[22m
+build  pages/test.reast : build_ast_from_re $src_root_dir/pages/test.re
+rule build_deps
+  command = $bsdep -hash 1a45d5bfd873387443eebb35b838e7d7 $g_ns -g $bsb_dir_group $in
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  pages/test.d : build_deps pages/test.reast
+rule ml_cmj_cmi
+  command = $bsc -nostdlib $g_pkg_flg -color always -bs-suffix $g_lib_incls -I $g_std_incl $warnings $bsc_flags -o $out $in
+  dyndep = $in_e.d
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  pages/test-MyBlog.cmj |  pages/test-MyBlog.cmi $src_root_dir/pages/test.bs.js : ml_cmj_cmi pages/test.reast ||  pages/test.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
+build  pages/goodbye.reast : build_ast_from_re $src_root_dir/pages/goodbye.re
+build  pages/goodbye.d : build_deps pages/goodbye.reast
+build  pages/goodbye-MyBlog.cmj |  pages/goodbye-MyBlog.cmi $src_root_dir/pages/goodbye.bs.js : ml_cmj_cmi pages/goodbye.reast ||  pages/goodbye.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
+rule build_package
+  command = $bsc -w -49 -color always -no-alias-deps  $in
+  restat = 1
+  description = [34mBuilding[39m [2m${out}[22m
+build  MyBlog.cmi : build_package MyBlog.mlmap
