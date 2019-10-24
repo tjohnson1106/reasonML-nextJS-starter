@@ -1,1 +1,1 @@
-pages/test-MyBlog.cmj : MyBlog.cmi
+pages/test-ReNext.cmj : ReNext.cmi

@@ -3,7 +3,7 @@
 import * as React from "react";
 
 function Test(Props) {
-  return React.createElement("div", undefined, "Goodbye Test");
+  return React.createElement("div", undefined, "Test");
 }
 
 var make = Test;

@@ -1,5 +1,5 @@
 g_std_incl = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/ocaml
-g_pkg_flg = -bs-package-name my-blog -bs-ns MyBlog
+g_pkg_flg = -bs-package-name re-next -bs-ns ReNext
 src_root_dir = /home/thomas/Code/web/reason/next-reason/re-next
 bsc = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/bsc.exe
 bsdep = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/bsb_helper.exe
@@ -7,7 +7,7 @@ warnings = -w -30-40+6+7+27+32..39+44+45+101
 bsc_flags = -bs-super-errors
 ppx_flags = 
 g_dpkg_incls = 
-g_ns = -bs-ns MyBlog
+g_ns = -bs-ns ReNext
 bsb_dir_group = 0
 g_lib_incls = -I . -I pages -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml
 rule build_ast_from_re
@@ -24,14 +24,14 @@ rule ml_cmj_cmi
   dyndep = $in_e.d
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
-build  pages/test-MyBlog.cmj |  pages/test-MyBlog.cmi $src_root_dir/pages/test.bs.js : ml_cmj_cmi pages/test.reast ||  pages/test.d
+build  pages/test-ReNext.cmj |  pages/test-ReNext.cmi $src_root_dir/pages/test.bs.js : ml_cmj_cmi pages/test.reast ||  pages/test.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
 build  pages/goodbye.reast : build_ast_from_re $src_root_dir/pages/goodbye.re
 build  pages/goodbye.d : build_deps pages/goodbye.reast
-build  pages/goodbye-MyBlog.cmj |  pages/goodbye-MyBlog.cmi $src_root_dir/pages/goodbye.bs.js : ml_cmj_cmi pages/goodbye.reast ||  pages/goodbye.d
+build  pages/goodbye-ReNext.cmj |  pages/goodbye-ReNext.cmi $src_root_dir/pages/goodbye.bs.js : ml_cmj_cmi pages/goodbye.reast ||  pages/goodbye.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
 rule build_package
   command = $bsc -w -49 -color always -no-alias-deps  $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
-build  MyBlog.cmi : build_package MyBlog.mlmap
+build  ReNext.cmi : build_package ReNext.mlmap

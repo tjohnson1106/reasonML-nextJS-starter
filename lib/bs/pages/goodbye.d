@@ -1,1 +1,1 @@
-pages/goodbye-MyBlog.cmj : MyBlog.cmi
+pages/goodbye-ReNext.cmj : ReNext.cmi
