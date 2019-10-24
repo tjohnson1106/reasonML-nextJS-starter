@@ -10,4 +10,8 @@ S /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib
 B /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml
 S pages
 B lib/bs/pages
+S src/components
+B lib/bs/src/components
+S src/bindings
+B lib/bs/src/bindings
 ####BSB GENERATED: NO EDIT}
