@@ -16,8 +16,19 @@ let make = () => {
           </span>
         </div>
         <div id="navbarMenu" className="navbar-menu">
-           {} </div>
-          /* TODO!: Pick up here work on navbar-menu/about section 102420191648*/
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <Next.Link href="/about">
+                <a> {ReasonReact.string("About")} </a>
+              </Next.Link>
+            </div>
+            <div className="navbar-item">
+              <Next.Link href="/about">
+                <a> {ReasonReact.string("Contact")} </a>
+              </Next.Link>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   </div>;
