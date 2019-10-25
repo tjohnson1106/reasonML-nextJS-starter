@@ -17,12 +17,12 @@ let make = () => {
         </div>
         <div id="navbarMenu" className=navbarMenu>
           <div className="navbar-end">
-            <div className=navvbarItem>
+            <div className=navbarItem>
               <Next.Link href="/about">
                 <a> {ReasonReact.string("About")} </a>
               </Next.Link>
             </div>
-            <div className=navvbarItem>
+            <div className=navbarItem>
               <Next.Link href="/about">
                 <a> {ReasonReact.string("Contact")} </a>
               </Next.Link>

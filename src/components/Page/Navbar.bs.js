@@ -4,40 +4,42 @@ import * as React from "react";
 import * as Link from "next/link";
 import * as NavbarStyles$ReNext from "./NavbarStyles.bs.js";
 
-function make(param) {
+function Navbar(Props) {
   return React.createElement("div", {
               className: "hero-head"
             }, React.createElement("nav", {
-                  className: "navbar main-title",
+                  className: NavbarStyles$ReNext.topnavStyles,
                   id: "topnav"
                 }, React.createElement("div", {
                       className: "container"
                     }, React.createElement("div", {
-                          className: "navbar-brand"
+                          className: NavbarStyles$ReNext.navbarBrand
                         }, React.createElement(Link.default, {
                               href: "/",
                               children: React.createElement("a", {
                                     className: NavbarStyles$ReNext.subtitle
                                   }, "Bracket Factory")
                             }), React.createElement("span", {
-                              className: "navbar-burger burger"
+                              className: NavbarStyles$ReNext.navbarBurger
                             }, React.createElement("span", undefined), React.createElement("span", undefined), React.createElement("span", undefined))), React.createElement("div", {
-                          className: "navbar-menu",
+                          className: NavbarStyles$ReNext.navbarMenu,
                           id: "navbarMenu"
                         }, React.createElement("div", {
                               className: "navbar-end"
                             }, React.createElement("div", {
-                                  className: "navbar-item"
+                                  className: NavbarStyles$ReNext.navbarItem
                                 }, React.createElement(Link.default, {
                                       href: "/about",
                                       children: React.createElement("a", undefined, "About")
                                     })), React.createElement("div", {
-                                  className: "navbar-item"
+                                  className: NavbarStyles$ReNext.navbarItem
                                 }, React.createElement(Link.default, {
                                       href: "/about",
                                       children: React.createElement("a", undefined, "Contact")
                                     })))))));
 }
+
+var make = Navbar;
 
 export {
   make ,

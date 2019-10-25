@@ -1,5 +1,8 @@
 open Css;
 
+let linkStyle = selector("a", [color(rgb(242, 242, 242))]);
+let linkHover = selector("a:hover", [borderBottom(px(1), solid, white)]);
+
 let subtitle =
   merge([
     style([
@@ -11,3 +14,28 @@ let subtitle =
     ]),
     "subtitle",
   ]);
+
+let navbarBrand =
+  merge([
+    style([fontFamily("Open Sans, Helvetica Neue, Arial, sans-serif")]),
+    "navbar-brand",
+  ]);
+
+let topnavStyles =
+  merge([style([background(rgb(0, 107, 198))]), "navbar", "main-title"]);
+
+let navbarMenu = merge([style([paddingTop(px(0))]), "navbar-menu"]);
+
+let navbarItem =
+  merge([
+    style([
+      background(rgb(0, 107, 198)),
+      color(rgb(242, 242, 242)),
+      linkStyle,
+      linkHover,
+    ]),
+    "navbar-item",
+  ]);
+
+let navbarBurger =
+  merge([style([color(rgba(255, 255, 255, 0.7))]), "navbar-burger"]);
