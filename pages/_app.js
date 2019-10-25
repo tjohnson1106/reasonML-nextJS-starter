@@ -4,7 +4,7 @@ import App from "next/app";
 // importing Reason component into JS
 const Page = require("../src/components/Page/Page.bs").make;
 
-const Page = class ReNext extends App {
+class ReNext extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -22,6 +22,6 @@ const Page = class ReNext extends App {
       </Page>
     );
   }
-};
+}
 
 export default ReNext;

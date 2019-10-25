@@ -10,6 +10,7 @@ let make = (~children) => {
       />
       <title> {React.string("BracFac")} </title>
     </Next.Head>
+    <Navbar />s
     children
   </>;
 };

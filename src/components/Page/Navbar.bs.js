@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import * as Link from "next/link";
+import * as NavbarStyles$ReNext from "./NavbarStyles.bs.js";
 
-function Navbar(Props) {
+function make(param) {
   return React.createElement("div", {
               className: "hero-head"
             }, React.createElement("nav", {
@@ -16,8 +17,8 @@ function Navbar(Props) {
                         }, React.createElement(Link.default, {
                               href: "/",
                               children: React.createElement("a", {
-                                    className: "subtitle"
-                                  }, "Bracket Factorty")
+                                    className: NavbarStyles$ReNext.subtitle
+                                  }, "Bracket Factory")
                             }), React.createElement("span", {
                               className: "navbar-burger burger"
                             }, React.createElement("span", undefined), React.createElement("span", undefined), React.createElement("span", undefined))), React.createElement("div", {
@@ -37,8 +38,6 @@ function Navbar(Props) {
                                       children: React.createElement("a", undefined, "Contact")
                                     })))))));
 }
-
-var make = Navbar;
 
 export {
   make ,
