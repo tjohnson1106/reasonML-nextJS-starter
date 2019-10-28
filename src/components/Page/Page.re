@@ -1,5 +1,7 @@
 [%bs.raw {|require("bulma")|}];
 
+Css.(global("p", [marginBottom(px(20))]));
+
 [@react.component]
 let make = (~children) => {
   <>

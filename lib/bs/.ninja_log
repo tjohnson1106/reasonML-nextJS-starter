@@ -110,3 +110,17 @@
 2	92	1572300999879673526	pages/index-ReNext.cmj	6152f15b72428d8c
 2	92	1572300999879673526	pages/index-ReNext.cmi	6152f15b72428d8c
 2	92	1572300999879673526	/home/thomas/Code/web/reason/next-reason/re-next/pages/index.bs.js	6152f15b72428d8c
+1	25	1572302330302580476	src/components/Page/Page.reast	8959b9f66ac4e864
+25	27	1572302330302580476	src/components/Page/Page.d	d821423ce730ec33
+27	56	1572302330302580476	src/components/Page/Page-ReNext.cmj	3d116db6f5088629
+27	56	1572302330302580476	src/components/Page/Page-ReNext.cmi	3d116db6f5088629
+27	56	1572302330302580476	/home/thomas/Code/web/reason/next-reason/re-next/src/components/Page/Page.bs.js	3d116db6f5088629
+30	45	1572302968619492639	src/components/Page/Page.reast	8959b9f66ac4e864
+45	110	1572302968619492639	src/components/Page/Page.d	d821423ce730ec33
+0	30	1572302969463493801	src/components/Page/Page.reast	8959b9f66ac4e864
+30	32	1572302969463493801	src/components/Page/Page.d	d821423ce730ec33
+0	19	1572303100899666275	src/components/Page/Page.reast	8959b9f66ac4e864
+19	22	1572303100899666275	src/components/Page/Page.d	d821423ce730ec33
+22	99	1572303100899666275	src/components/Page/Page-ReNext.cmj	3d116db6f5088629
+22	99	1572303100899666275	src/components/Page/Page-ReNext.cmi	3d116db6f5088629
+22	99	1572303100899666275	/home/thomas/Code/web/reason/next-reason/re-next/src/components/Page/Page.bs.js	3d116db6f5088629
