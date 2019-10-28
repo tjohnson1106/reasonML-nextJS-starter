@@ -5,14 +5,14 @@ import * as React from "react";
 function Section(Props) {
   var title = Props.title;
   var subtitle = Props.subtitle;
-  Props.children;
+  var children = Props.children;
   return React.createElement("section", undefined, React.createElement("div", {
                   className: "container"
                 }, React.createElement("h1", {
                       className: "title"
                     }, title), React.createElement("h2", {
                       className: "subtitle"
-                    }, subtitle)));
+                    }, subtitle, children)));
 }
 
 var make = Section;

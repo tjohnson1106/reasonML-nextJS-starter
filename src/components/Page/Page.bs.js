@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Head from "next/head";
+import * as Footer$ReNext from "./Footer.bs.js";
 import * as Navbar$ReNext from "./Navbar.bs.js";
 
 ((require("bulma")));
@@ -13,7 +14,7 @@ function Page(Props) {
                 }, React.createElement("meta", {
                       content: "width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover",
                       name: "viewport"
-                    }), React.createElement("title", undefined, "BracFac")), React.createElement(Navbar$ReNext.make, { }), children);
+                    }), React.createElement("title", undefined, "BracFac")), React.createElement(Navbar$ReNext.make, { }), children, React.createElement(Footer$ReNext.make, { }));
 }
 
 var make = Page;

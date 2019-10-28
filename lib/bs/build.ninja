@@ -15,7 +15,7 @@ rule build_ast_from_re
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/test.reast : build_ast_from_re $src_root_dir/pages/test.re
 rule build_deps
-  command = $bsdep -hash 2c6c4da4a05218aae7f58183b0140773 $g_ns -g $bsb_dir_group $in
+  command = $bsdep -hash 2ce32e25e92526eae36c505a0f98209f $g_ns -g $bsb_dir_group $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/test.d : build_deps pages/test.reast
@@ -33,6 +33,10 @@ build  pages/goodbye-ReNext.cmj |  pages/goodbye-ReNext.cmi $src_root_dir/pages/
 build  src/components/Page/Page.reast : build_ast_from_re $src_root_dir/src/components/Page/Page.re
 build  src/components/Page/Page.d : build_deps src/components/Page/Page.reast
 build  src/components/Page/Page-ReNext.cmj |  src/components/Page/Page-ReNext.cmi $src_root_dir/src/components/Page/Page.bs.js : ml_cmj_cmi src/components/Page/Page.reast ||  src/components/Page/Page.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
+build  src/components/Page/Footer.reast : build_ast_from_re $src_root_dir/src/components/Page/Footer.re
+build  src/components/Page/Footer.d : build_deps src/components/Page/Footer.reast
+build  src/components/Page/Footer-ReNext.cmj |  src/components/Page/Footer-ReNext.cmi $src_root_dir/src/components/Page/Footer.bs.js : ml_cmj_cmi src/components/Page/Footer.reast ||  src/components/Page/Footer.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
 build  src/components/Page/Navbar.reast : build_ast_from_re $src_root_dir/src/components/Page/Navbar.re
 build  src/components/Page/Navbar.d : build_deps src/components/Page/Navbar.reast
