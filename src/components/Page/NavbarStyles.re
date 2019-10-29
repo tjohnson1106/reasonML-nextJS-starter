@@ -24,7 +24,14 @@ let navbarBrand =
 let topnavStyles =
   merge([style([background(rgb(0, 107, 198))]), "navbar", "main-title"]);
 
-let navbarMenu = merge([style([paddingTop(px(0))]), "navbar-menu"]);
+let navbarMenu = (menuIsActive: bool) =>
+  merge([
+    style([paddingTop(px(0))]),
+    {
+      menuIsActive ? "is-active" : "";
+    },
+    "navbar-menu",
+  ]);
 
 let navbarItem =
   merge([
@@ -37,5 +44,12 @@ let navbarItem =
     "navbar-item",
   ]);
 
-let navbarBurger =
-  merge([style([color(rgba(255, 255, 255, 0.7))]), "navbar-burger"]);
+let navbarBurger = (menuIsActive: bool) =>
+  merge([
+    style([color(rgba(255, 255, 255, 0.7))]),
+    {
+      menuIsActive ? "is-active" : "";
+    },
+    "navbar-burger",
+    "burger",
+  ]);

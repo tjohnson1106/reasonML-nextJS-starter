@@ -60,16 +60,21 @@ var topnavStyles = Css.merge(/* :: */[
       ]
     ]);
 
-var navbarMenu = Css.merge(/* :: */[
-      Css.style(/* :: */[
-            Css.paddingTop(Css.px(0)),
-            /* [] */0
-          ]),
-      /* :: */[
-        "navbar-menu",
-        /* [] */0
-      ]
-    ]);
+function navbarMenu(menuIsActive) {
+  return Css.merge(/* :: */[
+              Css.style(/* :: */[
+                    Css.paddingTop(Css.px(0)),
+                    /* [] */0
+                  ]),
+              /* :: */[
+                menuIsActive ? "is-active" : "",
+                /* :: */[
+                  "navbar-menu",
+                  /* [] */0
+                ]
+              ]
+            ]);
+}
 
 var navbarItem = Css.merge(/* :: */[
       Css.style(/* :: */[
@@ -91,16 +96,24 @@ var navbarItem = Css.merge(/* :: */[
       ]
     ]);
 
-var navbarBurger = Css.merge(/* :: */[
-      Css.style(/* :: */[
-            Css.color(Css.rgba(255, 255, 255, 0.7)),
-            /* [] */0
-          ]),
-      /* :: */[
-        "navbar-burger",
-        /* [] */0
-      ]
-    ]);
+function navbarBurger(menuIsActive) {
+  return Css.merge(/* :: */[
+              Css.style(/* :: */[
+                    Css.color(Css.rgba(255, 255, 255, 0.7)),
+                    /* [] */0
+                  ]),
+              /* :: */[
+                menuIsActive ? "is-active" : "",
+                /* :: */[
+                  "navbar-burger",
+                  /* :: */[
+                    "burger",
+                    /* [] */0
+                  ]
+                ]
+              ]
+            ]);
+}
 
 export {
   linkStyle ,
