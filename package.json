@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "dev:reason": "bsb -clean-world -make-world -w",
-    "build": "next build",
-    "start": "next start"
+    "build": "npm run-script build",
+    "start": "npm run-script start"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
