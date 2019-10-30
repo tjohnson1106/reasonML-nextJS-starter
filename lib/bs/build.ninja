@@ -15,7 +15,7 @@ rule build_ast_from_re
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/test.reast : build_ast_from_re $src_root_dir/pages/test.re
 rule build_deps
-  command = $bsdep -hash 21688d7c073ebd5ab5d8a82d4f0c7859 $g_ns -g $bsb_dir_group $in
+  command = $bsdep -hash 57828b8a13365be302a3f7776f7dba7f $g_ns -g $bsb_dir_group $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/test.d : build_deps pages/test.reast
@@ -25,6 +25,10 @@ rule ml_cmj_cmi
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/test-ReNext.cmj |  pages/test-ReNext.cmi $src_root_dir/pages/test.bs.js : ml_cmj_cmi pages/test.reast ||  pages/test.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
+build  pages/about.reast : build_ast_from_re $src_root_dir/pages/about.re
+build  pages/about.d : build_deps pages/about.reast
+build  pages/about-ReNext.cmj |  pages/about-ReNext.cmi $src_root_dir/pages/about.bs.js : ml_cmj_cmi pages/about.reast ||  pages/about.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
 build  pages/index.reast : build_ast_from_re $src_root_dir/pages/index.re
 build  pages/index.d : build_deps pages/index.reast

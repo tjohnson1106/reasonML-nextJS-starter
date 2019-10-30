@@ -11,7 +11,6 @@ let make = () => {
     React.useReducer(
       (state, action) =>
         switch (action) {
-        //  opposite of the current state
         | ToggleMenu => {menuIsActive: !state.menuIsActive}
         },
       {menuIsActive: false},
