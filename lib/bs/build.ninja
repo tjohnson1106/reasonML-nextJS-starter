@@ -5,17 +5,17 @@ bsc = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/
 bsdep = /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101
 bsc_flags = -bs-super-errors
-ppx_flags = 
+ppx_flags = -ppx /home/thomas/Code/web/reason/next-reason/re-next/node_modules/graphql_ppx/ppx
 g_dpkg_incls = 
 g_ns = -bs-ns ReNext
 bsb_dir_group = 0
-g_lib_incls = -I . -I src/bindings -I src/components/Page -I pages -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-css/lib/ocaml
+g_lib_incls = -I . -I src/bindings -I src/components/Page -I src/components/layout -I pages -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo-hooks/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-css/lib/ocaml
 rule build_ast_from_re
-  command = $bsc  $warnings -color always -bs-jsx 3 $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
+  command = $bsc  $warnings -color always -bs-jsx 3 $ppx_flags $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/test.reast : build_ast_from_re $src_root_dir/pages/test.re
 rule build_deps
-  command = $bsdep -hash 57828b8a13365be302a3f7776f7dba7f $g_ns -g $bsb_dir_group $in
+  command = $bsdep -hash 3d6014f066eecea1ced2be134f2d716c $g_ns -g $bsb_dir_group $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build  pages/test.d : build_deps pages/test.reast
@@ -42,9 +42,21 @@ build  pages/goodbye.reast : build_ast_from_re $src_root_dir/pages/goodbye.re
 build  pages/goodbye.d : build_deps pages/goodbye.reast
 build  pages/goodbye-ReNext.cmj |  pages/goodbye-ReNext.cmi $src_root_dir/pages/goodbye.bs.js : ml_cmj_cmi pages/goodbye.reast ||  pages/goodbye.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
+build  src/components/layout/Tag.reast : build_ast_from_re $src_root_dir/src/components/layout/Tag.re
+build  src/components/layout/Tag.d : build_deps src/components/layout/Tag.reast
+build  src/components/layout/Tag-ReNext.cmj |  src/components/layout/Tag-ReNext.cmi $src_root_dir/src/components/layout/Tag.bs.js : ml_cmj_cmi src/components/layout/Tag.reast ||  src/components/layout/Tag.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout
+build  src/components/layout/Post.reast : build_ast_from_re $src_root_dir/src/components/layout/Post.re
+build  src/components/layout/Post.d : build_deps src/components/layout/Post.reast
+build  src/components/layout/Post-ReNext.cmj |  src/components/layout/Post-ReNext.cmi $src_root_dir/src/components/layout/Post.bs.js : ml_cmj_cmi src/components/layout/Post.reast ||  src/components/layout/Post.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout
 build  src/components/Page/Page.reast : build_ast_from_re $src_root_dir/src/components/Page/Page.re
 build  src/components/Page/Page.d : build_deps src/components/Page/Page.reast
 build  src/components/Page/Page-ReNext.cmj |  src/components/Page/Page-ReNext.cmi $src_root_dir/src/components/Page/Page.bs.js : ml_cmj_cmi src/components/Page/Page.reast ||  src/components/Page/Page.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
+build  src/components/Page/Posts.reast : build_ast_from_re $src_root_dir/src/components/Page/Posts.re
+build  src/components/Page/Posts.d : build_deps src/components/Page/Posts.reast
+build  src/components/Page/Posts-ReNext.cmj |  src/components/Page/Posts-ReNext.cmi $src_root_dir/src/components/Page/Posts.bs.js : ml_cmj_cmi src/components/Page/Posts.reast ||  src/components/Page/Posts.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
 build  src/components/Page/Footer.reast : build_ast_from_re $src_root_dir/src/components/Page/Footer.re
 build  src/components/Page/Footer.d : build_deps src/components/Page/Footer.reast

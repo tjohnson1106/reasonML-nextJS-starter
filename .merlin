@@ -1,6 +1,7 @@
 ####{BSB GENERATED: NO EDIT
 B lib/bs
 FLG -open ReNext
+FLG -ppx /home/thomas/Code/web/reason/next-reason/re-next/node_modules/graphql_ppx/ppx
 FLG -ppx '/home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/bsppx.exe -bs-jsx 3'
 S /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/ocaml
 B /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-platform/lib/ocaml
@@ -8,10 +9,16 @@ FLG -nostdlib
 FLG -w -30-40+6+7+27+32..39+44+45+101
 S /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml
 B /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml
+S /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo/lib/ocaml
+B /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo/lib/ocaml
+S /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo-hooks/lib/ocaml
+B /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo-hooks/lib/ocaml
 S /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-css/lib/ocaml
 B /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-css/lib/ocaml
 S pages
 B lib/bs/pages
+S src/components/layout
+B lib/bs/src/components/layout
 S src/components/Page
 B lib/bs/src/components/Page
 S src/bindings
