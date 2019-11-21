@@ -9,25 +9,21 @@ ppx_flags = -ppx /home/thomas/Code/web/reason/next-reason/re-next/node_modules/g
 g_dpkg_incls = 
 g_ns = -bs-ns ReNext
 bsb_dir_group = 0
-g_lib_incls = -I . -I src/bindings -I src/components/Page -I src/components/layout -I pages -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo-hooks/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-css/lib/ocaml
+g_lib_incls = -I . -I src/bindings -I src/components/layout/layout -I src/components/layout -I pages -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-react/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/reason-apollo-hooks/lib/ocaml -I /home/thomas/Code/web/reason/next-reason/re-next/node_modules/bs-css/lib/ocaml
 rule build_ast_from_re
   command = $bsc  $warnings -color always -bs-jsx 3 $ppx_flags $bsc_flags -o $out -bs-syntax-only -bs-binary-ast $in
   description = [34mBuilding[39m [2m${out}[22m
-build  pages/test.reast : build_ast_from_re $src_root_dir/pages/test.re
+build  pages/about.reast : build_ast_from_re $src_root_dir/pages/about.re
 rule build_deps
-  command = $bsdep -hash b046691cc3f7ea76faceae0917fe3769 $g_ns -g $bsb_dir_group $in
+  command = $bsdep -hash b879191bc4039465c6de752c7bae8a83 $g_ns -g $bsb_dir_group $in
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
-build  pages/test.d : build_deps pages/test.reast
+build  pages/about.d : build_deps pages/about.reast
 rule ml_cmj_cmi
   command = $bsc -nostdlib $g_pkg_flg -color always -bs-suffix $g_lib_incls -I $g_std_incl $warnings $bsc_flags -o $out $in
   dyndep = $in_e.d
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
-build  pages/test-ReNext.cmj |  pages/test-ReNext.cmi $src_root_dir/pages/test.bs.js : ml_cmj_cmi pages/test.reast ||  pages/test.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
-build  pages/about.reast : build_ast_from_re $src_root_dir/pages/about.re
-build  pages/about.d : build_deps pages/about.reast
 build  pages/about-ReNext.cmj |  pages/about-ReNext.cmi $src_root_dir/pages/about.bs.js : ml_cmj_cmi pages/about.reast ||  pages/about.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
 build  pages/index.reast : build_ast_from_re $src_root_dir/pages/index.re
@@ -42,10 +38,6 @@ build  pages/contact.reast : build_ast_from_re $src_root_dir/pages/contact.re
 build  pages/contact.d : build_deps pages/contact.reast
 build  pages/contact-ReNext.cmj |  pages/contact-ReNext.cmi $src_root_dir/pages/contact.bs.js : ml_cmj_cmi pages/contact.reast ||  pages/contact.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
-build  pages/goodbye.reast : build_ast_from_re $src_root_dir/pages/goodbye.re
-build  pages/goodbye.d : build_deps pages/goodbye.reast
-build  pages/goodbye-ReNext.cmj |  pages/goodbye-ReNext.cmi $src_root_dir/pages/goodbye.bs.js : ml_cmj_cmi pages/goodbye.reast ||  pages/goodbye.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:pages
 build  src/components/layout/Tag.reast : build_ast_from_re $src_root_dir/src/components/layout/Tag.re
 build  src/components/layout/Tag.d : build_deps src/components/layout/Tag.reast
 build  src/components/layout/Tag-ReNext.cmj |  src/components/layout/Tag-ReNext.cmi $src_root_dir/src/components/layout/Tag.bs.js : ml_cmj_cmi src/components/layout/Tag.reast ||  src/components/layout/Tag.d
@@ -54,30 +46,34 @@ build  src/components/layout/Post.reast : build_ast_from_re $src_root_dir/src/co
 build  src/components/layout/Post.d : build_deps src/components/layout/Post.reast
 build  src/components/layout/Post-ReNext.cmj |  src/components/layout/Post-ReNext.cmi $src_root_dir/src/components/layout/Post.bs.js : ml_cmj_cmi src/components/layout/Post.reast ||  src/components/layout/Post.d
   g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout
-build  src/components/layout/Tags.reast : build_ast_from_re $src_root_dir/src/components/layout/Tags.re
-build  src/components/layout/Tags.d : build_deps src/components/layout/Tags.reast
-build  src/components/layout/Tags-ReNext.cmj |  src/components/layout/Tags-ReNext.cmi $src_root_dir/src/components/layout/Tags.bs.js : ml_cmj_cmi src/components/layout/Tags.reast ||  src/components/layout/Tags.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout
-build  src/components/Page/Page.reast : build_ast_from_re $src_root_dir/src/components/Page/Page.re
-build  src/components/Page/Page.d : build_deps src/components/Page/Page.reast
-build  src/components/Page/Page-ReNext.cmj |  src/components/Page/Page-ReNext.cmi $src_root_dir/src/components/Page/Page.bs.js : ml_cmj_cmi src/components/Page/Page.reast ||  src/components/Page/Page.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
-build  src/components/Page/Footer.reast : build_ast_from_re $src_root_dir/src/components/Page/Footer.re
-build  src/components/Page/Footer.d : build_deps src/components/Page/Footer.reast
-build  src/components/Page/Footer-ReNext.cmj |  src/components/Page/Footer-ReNext.cmi $src_root_dir/src/components/Page/Footer.bs.js : ml_cmj_cmi src/components/Page/Footer.reast ||  src/components/Page/Footer.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
-build  src/components/Page/Navbar.reast : build_ast_from_re $src_root_dir/src/components/Page/Navbar.re
-build  src/components/Page/Navbar.d : build_deps src/components/Page/Navbar.reast
-build  src/components/Page/Navbar-ReNext.cmj |  src/components/Page/Navbar-ReNext.cmi $src_root_dir/src/components/Page/Navbar.bs.js : ml_cmj_cmi src/components/Page/Navbar.reast ||  src/components/Page/Navbar.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
-build  src/components/Page/Section.reast : build_ast_from_re $src_root_dir/src/components/Page/Section.re
-build  src/components/Page/Section.d : build_deps src/components/Page/Section.reast
-build  src/components/Page/Section-ReNext.cmj |  src/components/Page/Section-ReNext.cmi $src_root_dir/src/components/Page/Section.bs.js : ml_cmj_cmi src/components/Page/Section.reast ||  src/components/Page/Section.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
-build  src/components/Page/NavbarStyles.reast : build_ast_from_re $src_root_dir/src/components/Page/NavbarStyles.re
-build  src/components/Page/NavbarStyles.d : build_deps src/components/Page/NavbarStyles.reast
-build  src/components/Page/NavbarStyles-ReNext.cmj |  src/components/Page/NavbarStyles-ReNext.cmi $src_root_dir/src/components/Page/NavbarStyles.bs.js : ml_cmj_cmi src/components/Page/NavbarStyles.reast ||  src/components/Page/NavbarStyles.d
-  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/Page
+build  src/components/layout/layout/Hero.reast : build_ast_from_re $src_root_dir/src/components/layout/layout/Hero.re
+build  src/components/layout/layout/Hero.d : build_deps src/components/layout/layout/Hero.reast
+build  src/components/layout/layout/Hero-ReNext.cmj |  src/components/layout/layout/Hero-ReNext.cmi $src_root_dir/src/components/layout/layout/Hero.bs.js : ml_cmj_cmi src/components/layout/layout/Hero.reast ||  src/components/layout/layout/Hero.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout/layout
+build  src/components/layout/layout/Page.reast : build_ast_from_re $src_root_dir/src/components/layout/layout/Page.re
+build  src/components/layout/layout/Page.d : build_deps src/components/layout/layout/Page.reast
+build  src/components/layout/layout/Page-ReNext.cmj |  src/components/layout/layout/Page-ReNext.cmi $src_root_dir/src/components/layout/layout/Page.bs.js : ml_cmj_cmi src/components/layout/layout/Page.reast ||  src/components/layout/layout/Page.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout/layout
+build  src/components/layout/layout/Tags.reast : build_ast_from_re $src_root_dir/src/components/layout/layout/Tags.re
+build  src/components/layout/layout/Tags.d : build_deps src/components/layout/layout/Tags.reast
+build  src/components/layout/layout/Tags-ReNext.cmj |  src/components/layout/layout/Tags-ReNext.cmi $src_root_dir/src/components/layout/layout/Tags.bs.js : ml_cmj_cmi src/components/layout/layout/Tags.reast ||  src/components/layout/layout/Tags.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout/layout
+build  src/components/layout/layout/Footer.reast : build_ast_from_re $src_root_dir/src/components/layout/layout/Footer.re
+build  src/components/layout/layout/Footer.d : build_deps src/components/layout/layout/Footer.reast
+build  src/components/layout/layout/Footer-ReNext.cmj |  src/components/layout/layout/Footer-ReNext.cmi $src_root_dir/src/components/layout/layout/Footer.bs.js : ml_cmj_cmi src/components/layout/layout/Footer.reast ||  src/components/layout/layout/Footer.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout/layout
+build  src/components/layout/layout/Navbar.reast : build_ast_from_re $src_root_dir/src/components/layout/layout/Navbar.re
+build  src/components/layout/layout/Navbar.d : build_deps src/components/layout/layout/Navbar.reast
+build  src/components/layout/layout/Navbar-ReNext.cmj |  src/components/layout/layout/Navbar-ReNext.cmi $src_root_dir/src/components/layout/layout/Navbar.bs.js : ml_cmj_cmi src/components/layout/layout/Navbar.reast ||  src/components/layout/layout/Navbar.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout/layout
+build  src/components/layout/layout/Section.reast : build_ast_from_re $src_root_dir/src/components/layout/layout/Section.re
+build  src/components/layout/layout/Section.d : build_deps src/components/layout/layout/Section.reast
+build  src/components/layout/layout/Section-ReNext.cmj |  src/components/layout/layout/Section-ReNext.cmi $src_root_dir/src/components/layout/layout/Section.bs.js : ml_cmj_cmi src/components/layout/layout/Section.reast ||  src/components/layout/layout/Section.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout/layout
+build  src/components/layout/layout/NavbarStyles.reast : build_ast_from_re $src_root_dir/src/components/layout/layout/NavbarStyles.re
+build  src/components/layout/layout/NavbarStyles.d : build_deps src/components/layout/layout/NavbarStyles.reast
+build  src/components/layout/layout/NavbarStyles-ReNext.cmj |  src/components/layout/layout/NavbarStyles-ReNext.cmi $src_root_dir/src/components/layout/layout/NavbarStyles.bs.js : ml_cmj_cmi src/components/layout/layout/NavbarStyles.reast ||  src/components/layout/layout/NavbarStyles.d
+  g_pkg_flg = $g_pkg_flg  -bs-package-output es6:src/components/layout/layout
 build  src/bindings/Next.reast : build_ast_from_re $src_root_dir/src/bindings/Next.re
 build  src/bindings/Next.d : build_deps src/bindings/Next.reast
 build  src/bindings/Next-ReNext.cmj |  src/bindings/Next-ReNext.cmi $src_root_dir/src/bindings/Next.bs.js : ml_cmj_cmi src/bindings/Next.reast ||  src/bindings/Next.d

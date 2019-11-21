@@ -5,7 +5,7 @@ import { ApolloProvider } from "@apollo/react-common";
 import { withApollo } from "../src/util/withApollo";
 
 // importing Reason component into JS
-const Page = require("../src/components/Page/Page.bs").make;
+// const Page = require("../src/components/layout/Page.bs").make;
 
 class ReNext extends App {
   static async getInitialProps({ Component, ctx }) {

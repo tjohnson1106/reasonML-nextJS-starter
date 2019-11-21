@@ -19,8 +19,8 @@ S pages
 B lib/bs/pages
 S src/components/layout
 B lib/bs/src/components/layout
-S src/components/Page
-B lib/bs/src/components/Page
+S src/components/layout/layout
+B lib/bs/src/components/layout/layout
 S src/bindings
 B lib/bs/src/bindings
 ####BSB GENERATED: NO EDIT}

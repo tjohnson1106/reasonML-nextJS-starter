@@ -29,7 +29,6 @@ let parseDate = (createdAt: option(Js.Json.t)): string => {
     |> getWithDefault(_, "")
   );
 };
-
 [@react.component]
 let make = () => {
   let (simple, _full) = ListPostQuery.use();
@@ -58,6 +57,7 @@ let make = () => {
                            tags={item##tags}
                            firstName={item##author##firstName}
                            lastName={item##author##lastName}
+                           createdAt=parsedCreatedAt
                          />;
                        },
                      )
@@ -68,8 +68,6 @@ let make = () => {
          | NoData
          | Error(_) => <p> {React.string("No posts available!")} </p>
          }}
-        <Post />
-        <Post />
         <Post />
         <Post />
         <Post />

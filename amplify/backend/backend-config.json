@@ -9,8 +9,8 @@
 					"defaultAuthentication": {
 						"authenticationType": "API_KEY",
 						"apiKeyConfig": {
-							"description": "reNext-key",
-							"apiKeyExpirationDays": "180"
+							"description": "AKIAYNXRODQAY2WO5IGK",
+							"apiKeyExpirationDays": "365"
 						}
 					}
 				}

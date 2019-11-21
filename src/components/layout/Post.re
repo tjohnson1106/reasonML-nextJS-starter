@@ -1,3 +1,4 @@
+
 let str = React.string;
 
 open Css;
@@ -35,6 +36,3 @@ let make =
       </div>
     </div>
   </div>;
-};
-
-let default = make;
