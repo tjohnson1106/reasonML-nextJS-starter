@@ -1,7 +1,9 @@
-
 let str = React.string;
 
 open Css;
+
+//  line 19, characters 2-698:
+
 
 let dateStyles = style([fontSize(px(10))]);
 
@@ -15,7 +17,7 @@ let make =
       ~lastName: string="",
       ~createdAt: string=?,
     ) => {
-  let localCreatedAt =
+      let localCreatedAt =
     Js.Date.fromString(createdAt) |> Js.Date.toLocaleString;
   let summary =
     String.length(body) < 100 ? body : String.sub(body, 0, 100) ++ "...";
