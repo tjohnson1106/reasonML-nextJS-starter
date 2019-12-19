@@ -2,9 +2,6 @@ let str = React.string;
 
 open Css;
 
-//  line 19, characters 2-698:
-
-
 let dateStyles = style([fontSize(px(10))]);
 
 [@react.component]
@@ -17,10 +14,12 @@ let make =
       ~lastName: string="",
       ~createdAt: string=?,
     ) => {
-      let localCreatedAt =
+  let localCreatedAt =
     Js.Date.fromString(createdAt) |> Js.Date.toLocaleString;
+
   let summary =
     String.length(body) < 100 ? body : String.sub(body, 0, 100) ++ "...";
+
   let authorName = firstName ++ " " ++ lastName;
   <div className="column is-one-third">
     <div className="card">
@@ -38,3 +37,6 @@ let make =
       </div>
     </div>
   </div>;
+};
+
+let default = make;

@@ -8,7 +8,13 @@
             "DeploymentBucketName": "amplify-re-next-dev-160841-deployment",
             "UnauthRoleName": "amplify-re-next-dev-160841-unauthRole",
             "StackName": "amplify-re-next-dev-160841",
-            "StackId": "arn:aws:cloudformation:us-east-1:579253181441:stack/amplify-re-next-dev-160841/1182fa70-fb51-11e9-96de-0e1e9f06bbc4"
+            "StackId": "arn:aws:cloudformation:us-east-1:579253181441:stack/amplify-re-next-dev-160841/1182fa70-fb51-11e9-96de-0e1e9f06bbc4",
+            "AmplifyAppId": "d22c4296zm5xeg"
+        },
+        "categories": {
+            "auth": {
+                "renextff58ffaf": {}
+            }
         }
     }
 }

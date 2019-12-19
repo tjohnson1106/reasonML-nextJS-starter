@@ -3,6 +3,11 @@ const withSass = require("@zeit/next-sass");
 const withCSS = require("@zeit/next-css");
 const withTM = require("next-transpile-modules");
 
+if (typeof require !== "undefined") {
+  require.extensions[".less"] = () => {};
+  require.extensions[".css"] = () => {};
+}
+
 module.exports = withPlugins(
   [
     [withSass, withCSS],
@@ -20,7 +25,11 @@ module.exports = withPlugins(
       modules: ["sass_loader"],
       cssModules: true
     },
-    webpack: (config) => {
+    webpack: (config, options) => {
+      config.module.rules.push({
+        test: /\.css$/,
+        loader: [require.resolve("postcss-loader")]
+      });
       // fixes npm packages that depend on fs module
       config.node = {
         fs: "empty"

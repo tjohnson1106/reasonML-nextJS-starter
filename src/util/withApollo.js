@@ -35,7 +35,7 @@ export function withApollo(PageComponent, { ssr = true } = {}) {
   }
 
   if (ssr || PageComponent.getInitialProps) {
-    WithApollo.getInitialProps = async (ctx) => {
+    WithApollo.getInitialProps = async ctx => {
       const { AppTree } = ctx;
 
       const apolloClient = (ctx.apolloClient = initApolloClient({}));
